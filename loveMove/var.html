@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复刻李峋爱心代码</title>
+    <meta name="keywords" content="复刻李峋爱心,李峋爱心代码,李峋同款爱心代码,爱心代码,李峋爱心代码,爱心">
+    <meta name="description" content="这可是李峋同款爱心代码~">
+    <link rel="shortcut icon" href="https://www.angie.js.cn/usr/uploads/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .audio-controller {
+        cursor: pointer;
+        position: fixed;
+        top: 25px;
+        left: 70px;
+        z-index: 1000;
+    }
+    .select_music,.back {
+        display: inline-block;
+        cursor: pointer;
+        position: fixed;
+        padding-bottom: 3px;
+        left: 130px;
+        font-family: 楷体;
+        color: #999;
+        z-index: 1000;
+    }
+    .select_music {
+        top: 35px;
+    }
+    .back {
+        bottom: 35px;
+        left: 40px;
+    }
+    .select_music:hover,.back:hover {
+        transition: all .2s ease-in-out;
+        text-decoration: underline;
+        font-size: 18px;
+        color: #2d8cf0;
+    }
+</style>
+<body>
+    <div class="audio-controller">
+        <img src="music.png" alt="播放音乐" title="on">
+    </div>
+    <p class="select_music">换一首</p>
+    <a href="https://angie.js.cn" class="back">返回主站</a>
+    <p class="love_you" id="love"></p>
+    <!-- 这里替换音乐 -->
+    <audio src="./music/0.mp3" loop="loop" controls="controls" style="display: none"></audio>
+    <canvas id="lovexf"></canvas>
+    <div style="display: none;">https://angie.js.cn/</div>
+    <script src="script.js"></script>
+    <script src="./love.click.js"></script>
+</body>
+<script>
+
+function getQueryParams(url) {
+    const paramArr = url.slice(url.indexOf("?") + 1).split("&");
+    const params = {};
+    paramArr.map((param) => {
+        const [key, val] = param.split("=");
+        params[key] = decodeURIComponent(val);
+    });
+    return params;
+}
+var search = window.location.search;
+let name = getQueryParams(search)
+console.log(name)
+document.getElementById("love").innerHTML=name.name
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c86d6693de25dbc83f5b35458e469aa0";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+<script>
+    /* 播放、暂停音乐 */
+    let notes_img = document.querySelector('.audio-controller img')
+    let audio = document.querySelector('audio')
+    notes_img.addEventListener('click', function () {
+        if (notes_img.title === 'off') {
+            notes_img.src = 'music.png';
+            audio.play();
+            notes_img.title = 'on';
+        } else {
+            notes_img.src = 'nomusic.png';
+            audio.pause();
+            notes_img.title = 'off';
+        }
+    });
+    /* 切换背景音乐 */
+    let select_music = document.querySelector(".select_music")
+    function sel_mus() {
+        let index = Math.floor(Math.random()*8)
+        notes_img.src = 'music.png';
+        audio.src = `./music/${index}.mp3`;
+        audio.play()
+    }
+    select_music.addEventListener('click', sel_mus)
+    sel_mus()
+    audio.play();
+
+
+</script>
+<script src='https://api.vvhan.com/api/snow'></script>
+<script src='https://api.vvhan.com/api/meihua'></script>
+</html>
