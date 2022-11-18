@@ -1,0 +1,122 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: url(https://vkceyugu.cdn.bspapp.com/VKCEYUGU-dec470b0-fed6-46e5-be53-ec85fadc01be/b3997a29-3506-4fa5-9a54-57b967b1990a.webp) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+}
+
+body::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    -webkit-background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
+}
+
+audio,
+.love_you {
+    position: absolute;
+    left: 50%;
+    top: 1.5rem;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 1809185784;
+}
+
+.love_you {
+    top: 45%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffc0cb;
+    letter-spacing: .05rem;
+    -moz-animation: love-xf 1.2s alternate ease-in-out;
+    -webkit-animation: love-xf 1.2s alternate ease-in-out;
+    animation: love-xf 1.2s alternate ease-in-out;
+    user-select: none;
+    -webkit-text-shadow: 0 0 8px #fff;
+    text-shadow: 0 0 8px #fff;
+}
+
+#lovexf {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 520;
+}
+
+@keyframes love-xf {
+    0% {
+        opacity: 0.08;
+        filter: blur(8px);
+        letter-spacing: .1rem;
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        letter-spacing: .05rem;
+    }
+}
+
+
+@keyframes meihua_anima {
+    from {right: -200px}
+    to {right: 0}
+}
+div .hansApi-meihua {
+    animation: meihua_anima 1.2s ease-in-out;
+}
+.audio-controller {
+    cursor: pointer;
+    position: fixed;
+    top: 25px;
+    left: 70px;
+    z-index: 1000;
+}
+.select_music,.back {
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    padding-bottom: 3px;
+    left: 130px;
+    font-family: "KaiTi";
+    color: #999;
+    z-index: 1000;
+}
+.select_music {
+    top: 35px;
+}
+.back {
+    bottom: 35px;
+    left: 40px;
+}
+.select_music:hover,.back:hover {
+    transition: all .2s ease-in-out;
+    text-decoration: underline;
+    font-size: 18px;
+    color: #2d8cf0;
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(97, 146, 250, 0.1) 10%,
+            rgba(97, 146, 250, 0.3) 20%,
+            rgba(97, 146, 250, 0.4) 30%,
+            rgba(97, 146, 250, 0.4) 70%,
+            rgba(97, 146, 250, 0.3) 80%,
+            rgba(97, 146, 250, 0.1) 90%,
+            rgba(0, 0, 0, 0) 100%
+    )
+}
+

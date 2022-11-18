@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复刻李峋爱心代码</title>
+    <meta name="keywords" content="复刻李峋爱心,李峋爱心代码,李峋同款爱心代码,爱心代码,李峋爱心代码,爱心">
+    <meta name="description" content="这可是李峋同款爱心代码~">
+    <link rel="shortcut icon" href="https://www.angie.js.cn/usr/uploads/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    // let s = document.getElementsByClassName("s");
+    // s.style.width = `32.3%`;
+    var width = document.documentElement.clientWidth;
+    var height =  document.documentElement.clientHeight;
+    if( width < height ){
+        console.log(width + " " + height);
+        $print =  $('body');
+        $print.width(height);
+        $print.height(width);
+        $print.css('top',  (height-width)/2 );
+        $print.css('left',  0-(height-width)/2 );
+        $print.css('transform' , 'rotate(90deg)');
+        $print.css('transform-origin' , '50% 50%');
+    }
+</script>
+<style>
+    .s {
+        /*display: flex;*/
+        position: absolute;
+        left: 33.8%;
+        top: 1%;
+        width: 32.3%;
+        font-family: "KaiTi";
+        z-index: 9999;
+    }
+    .s marquee {
+        box-sizing: border-box;
+        transform: translateY(2px);
+        font-size: 18px;
+        color: rgba(255, 196, 0, 0.6);
+        background: linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(255, 255, 255, 0.1) 10%,
+                rgba(255, 255, 255, 0.1) 90%,
+                rgba(0, 0, 0, 0) 100%
+        );
+    }
+    svg {
+        opacity: 0.6;
+        transform: translate(-30px, 30px);
+        min-width: 20px;
+        min-height: 20px;
+        width: 25px;
+        height: 25px;
+    }
+</style>
+<body>
+    <div class="s">
+        <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M656.26112 347.20768a188.65152 188.65152 0 1 0 0 324.04992V347.20768z" fill="#F4CA1C" p-id="6649"></path>
+            <path d="M668.34944 118.88128a73.34912 73.34912 0 0 0-71.168-4.06016L287.17056 263.5008a4.608 4.608 0 0 1-2.01216 0.4608H130.048A73.728 73.728 0 0 0 56.32 337.59744v349.63968a73.728 73.728 0 0 0 73.728 73.63584h156.55424a4.67968 4.67968 0 0 1 1.94048 0.43008l309.59104 143.19616a73.7024 73.7024 0 0 0 104.66816-66.82112V181.20704a73.216 73.216 0 0 0-34.45248-62.32576zM125.40416 687.23712V337.59744a4.608 4.608 0 0 1 4.608-4.608h122.0352v358.88128H130.048a4.608 4.608 0 0 1-4.64384-4.6336z m508.31872 150.44096a4.608 4.608 0 0 1-6.56384 4.19328l-306.02752-141.55264V323.77344l305.9712-146.72384a4.608 4.608 0 0 1 6.62016 4.15744v656.47104z m304.5376-358.95808h-150.25152a34.5088 34.5088 0 1 0 0 69.0176h150.25152a34.5088 34.5088 0 1 0 0-69.0176z m-128.25088-117.76a34.44736 34.44736 0 0 0 24.41728-10.10176L940.672 244.736a34.52416 34.52416 0 0 0-48.83968-48.80896L785.5872 302.08a34.5088 34.5088 0 0 0 24.4224 58.88z m24.41728 314.60864a34.52416 34.52416 0 1 0-48.83968 48.81408l106.24512 106.1376a34.52416 34.52416 0 0 0 48.83968-48.80896z" fill="#595BB3" p-id="6650"></path>
+        </svg>
+        <div class="line" style="transform: translateY(1px)"></div>
+        <div id="marquee">
+            <marquee behavior="scroll" οnmοuseοver="this.stop()" οnmοuseοut="this.start()">爱情没有统一零售价，有时一文不值，有时千金难买。</marquee>
+        </div>
+        <div class="line" style="transform: translateY(-1px)"></div>
+    </div>
+    <div class="audio-controller">
+        <img src="music.png" alt="播放音乐" title="on">
+    </div>
+    <p class="select_music">换一首</p>
+    <a href="https://angie.js.cn" class="back">返回主站</a>
+    <p class="love_you" id="love"></p>
+    <!-- 这里替换音乐 -->
+    <audio src="./music/0.mp3" loop="loop" controls="controls" style="display: none"></audio>
+    <canvas id="lovexf"></canvas>
+    <div style="display: none;">https://angie.js.cn/</div>
+    <script src="script.js"></script>
+    <script src="./love.click.js"></script>
+</body>
+<script>
+
+function getQueryParams(url) {
+    const paramArr = url.slice(url.indexOf("?") + 1).split("&");
+    const params = {};
+    paramArr.map((param) => {
+        const [key, val] = param.split("=");
+        params[key] = decodeURIComponent(val);
+    });
+    return params;
+}
+var search = window.location.search;
+let name = getQueryParams(search)
+// console.log(name)
+document.getElementById("love").innerHTML=name.name
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c86d6693de25dbc83f5b35458e469aa0";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+
+</script>
+<script src="own.js"></script>
+<!--<script src='https://api.vvhan.com/api/snow'></script>-->
+<script src="https://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script src='https://api.vvhan.com/api/meihua'></script>
+
+</html>
